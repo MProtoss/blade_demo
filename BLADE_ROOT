@@ -1,0 +1,30 @@
+cc_binary_config(
+    #extra_libs = ['#boost_thread-mt','#libcrypto'],
+    run_lib_paths = [],
+)
+cc_config(
+    cxxflags = [
+        "-std=c++11",
+        "-std=gnu++11",
+    ],
+    extra_incs=[
+    ],
+    warnings = [
+    ],
+# C++ only warning flags
+cxx_warnings = [
+    '-Wno-invalid-offsetof',
+    '-Wnon-virtual-dtor',
+    '-Woverloaded-virtual',
+    '-Wvla',
+    '-Wno-unused-local-typedefs',
+    #'-Werror=uninitialized',
+    #'-Werror=non-virtual-dtor',
+    #'-Werror=overloaded-virtual',
+    #'-Werror=vla',
+],
+# C only warning flags
+c_warnings = ['-Werror-implicit-function-declaration'],
+cpplint = 'cpplint.py',
+optimize = ['-O2'],
+)
